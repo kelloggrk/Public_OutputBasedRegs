@@ -1,8 +1,8 @@
-# OutputBasedRegs
-
+# Public_OutputBasedRegs
+## Repository for "Output and Attribute-Based Carbon Regulation Under Uncertainty", by Ryan Kellogg
 
 ### Organization
-- All of the code for this project stored in this repository. To run the code, you need to clone this repo to your local machine (or copy the files directly, preseving the subfolder structure).
+- All of the code for this project is stored in this repository. To run the code, you need to clone this repo to your local machine (or copy the files directly, preseving the subfolder structure).
   * The local folder holding the code files is referred to as `repodir` below.
 - All raw data files are available [here](https://www.dropbox.com/sh/bbumsxyrngrcmqm/AACTPSZy0i1YwZ6g1ZjaSs3fa?dl=0) in the `rawdata` folder.
   * This link also includes intermediate (`intdata`) and output (`output`) data folders that are populated with the output from the Stata scripts.
