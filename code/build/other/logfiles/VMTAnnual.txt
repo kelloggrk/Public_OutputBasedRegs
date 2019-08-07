@@ -1,0 +1,112 @@
+-------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Work/OutputBasedRegs/code/build/other/logfiles/VMTAnnual.txt
+  log type:  text
+ opened on:   6 Aug 2019, 17:20:55
+
+. 
+. 
+. 
+. ***********************************************************************
+. 
+. * Import the VMT data (in millions of miles)
+. import delimited using "$rawdir/TRFVOLUSM227NFWA.csv", clear
+(2 vars, 576 obs)
+
+. rename trf vmt
+
+. 
+. * Collapse data to annual
+. rename date datestring
+
+. gen Date = date(datestring,"YMD")
+
+. format Date %dDmCY
+
+. drop datestring
+
+. 
+. gen Year = year(Date)
+
+. sort Year
+
+. collapse(sum) vmt, by(Year)
+
+. tempfile tempall
+
+. save "`tempall'"
+file C:\Users\RYANKE~1\AppData\Local\Temp\ST_3a2c_000001.tmp saved
+
+. 
+. * Keep data from through 2012 (baseline year for simulation)
+. keep if Year<=2012
+(5 observations deleted)
+
+. 
+. 
+. * Merge in gasoline price data (in real $)
+. tempfile tempvmt
+
+. save "`tempvmt'"
+file C:\Users\RYANKE~1\AppData\Local\Temp\ST_3a2c_000002.tmp saved
+
+. clear
+
+. insheet using "$gasdir/AnnualRealGasPrices.csv"
+(2 vars, 26 obs)
+
+. rename v1 Year
+
+. rename v2 PGas
+
+. sort Year
+
+. merge 1:1 Year using "`tempvmt'"
+(note: variable Year was int, now float to accommodate using data's values)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                            25
+        from master                         4  (_merge==1)
+        from using                         21  (_merge==2)
+
+    matched                                22  (_merge==3)
+    -----------------------------------------
+
+. keep if _merge==3
+(25 observations deleted)
+
+. drop _merge
+
+. sort Year
+
+. 
+. 
+. * Export PGas and vmt
+. export delimited using "$outdir/AnnualVMT_PGas.csv", replace
+(note: file C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/output/other/AnnualVM
+> T_PGas.csv not found)
+file C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/output/other/AnnualVMT_PGas.
+> csv saved
+
+. 
+. 
+. * Export 2012 vmt
+. clear
+
+. use "`tempall'"
+
+. keep if Year==2012
+(47 observations deleted)
+
+. keep vmt
+
+. export delimited using "$outdir/VMT2012.csv", replace
+(note: file C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/output/other/VMT2012.
+> csv not found)
+file C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/output/other/VMT2012.csv sav
+> ed
+
+. 
+. 
+. cap log close

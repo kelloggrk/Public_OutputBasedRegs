@@ -1,0 +1,15 @@
+Application, Pigou, Flat, Intensity, Optimal 
+MODELS WITH BOTH ETA AND F VOLATILITY, , , 
+Footprint, 68.3840, 32.6177, 31.1301, 32.6405 
+Miles driven, 68.0824, 31.9543, 25.1030, 32.3402 
+Elec, 3.2581e+09, 1.2312e+09, 1.4154e+09, 1.4935e+09 
+Footprint with high sigmaF, 68.3840, 7.4279, 7.0105, 7.4312 
+Elec with high demand elast, 7.7162e+09, 1.9990e+09, 1.6892e+09, 2.4125e+09 
+MODELS WITH NONZERO CORR BETWEEN ETA AND F, , , 
+Footprint, 68.3840, 31.4992, 31.8784, 32.1704 
+Miles driven, 68.0824, 35.4968, 19.5195, 35.5431 
+Elec, 3.2581e+09, 1.1594e+09, 1.4091e+09, 1.4590e+09 
+MODELS WITH ONLY ETA VOLATILITY, , , 
+Footprint, 68.3840, 68.1166, 65.1406, 68.1648 
+Miles driven, 68.0824, 66.9578, 53.9426, 67.5816 
+Elec, 3.2581e+09, 2.0060e+09, 2.7046e+09, 2.7996e+09 

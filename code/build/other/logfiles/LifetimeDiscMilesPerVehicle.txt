@@ -1,0 +1,48 @@
+-------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Work/OutputBasedRegs/code/build/other/logfiles/LifetimeDiscMile
+> sPerVehicle.txt
+  log type:  text
+ opened on:   6 Aug 2019, 17:20:54
+
+. 
+. 
+. 
+. ***********************************************************************
+. 
+. * Import the BKZ new car data. VMT weighted by survival probability and car v
+> s truck share
+. * Each row is vintage (vehicle age)
+. clear
+
+. import excel using "$rawdir/BKZ_AER2013_worksheet.xlsx", sheet("NEW Cars") ce
+> llrange(G54:G89)
+
+. 
+. * Discount rate from Allcott and Wozny (2014)
+. local disc = 0.062
+
+. 
+. * Create discounted sum of VMT
+. gen Ind = _n
+
+. gen PV = G / (1+`disc')^(Ind-1)
+
+. egen LifeVMT = sum(PV)
+
+. 
+. * Save
+. keep LifeVMT
+
+. duplicates drop
+
+Duplicates in terms of all variables
+
+(35 observations deleted)
+
+. outfile using "$outdir/LifetimeDiscMiles.csv", comma replace
+(note: file C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/output/other/Lifetime
+> DiscMiles.csv not found)
+
+. 
+. cap log close

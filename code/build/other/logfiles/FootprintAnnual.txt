@@ -1,0 +1,81 @@
+-------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Work/OutputBasedRegs/code/build/other/logfiles/FootprintAnnual.
+> txt
+  log type:  text
+ opened on:   6 Aug 2019, 17:20:55
+
+. 
+. 
+. 
+. 
+. ***********************************************************************
+. 
+. * Load in sales-weighted vehicle attributes from Excel. 
+. * Data come from Leard, Linn, McConnell attributes paper, RFF-DP-16-04.pdf
+. import excel using "$rawdir/attributes_means.xlsx", ///
+>         sheet("Sheet1") firstrow clear
+
+. 
+. * Keep cars from start of data (1996) through 2010. Constant, non-ABR
+. * standard of 27.5 mpg during this period
+. keep model_year fp_cars
+
+. keep if model_year<=2010 
+(5 observations deleted)
+
+. rename fp_cars fp
+
+. rename model_year year
+
+. rename year Year
+
+. sort Year
+
+. 
+. * Merge in gasoline price data (in real $)
+. tempfile tempgas
+
+. save "`tempgas'"
+file C:\Users\RYANKE~1\AppData\Local\Temp\ST_1e38_000001.tmp saved
+
+. clear
+
+. insheet using "$gasdir/AnnualRealGasPrices_MA.csv"
+(2 vars, 26 obs)
+
+. rename v1 Year
+
+. rename v2 PGas
+
+. sort Year
+
+. merge 1:1 Year using "`tempgas'"
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                            11
+        from master                        11  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                                15  (_merge==3)
+    -----------------------------------------
+
+. keep if _merge==3
+(11 observations deleted)
+
+. drop _merge
+
+. sort Year
+
+. 
+. 
+. * Export footprint and gas price
+. export delimited using "$outdir/AnnualFootprint_PGas.csv", replace
+(note: file C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/output/other/AnnualFo
+> otprint_PGas.csv not found)
+file C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/output/other/AnnualFootprint
+> _PGas.csv saved
+
+. 
+. cap log close

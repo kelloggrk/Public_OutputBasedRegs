@@ -1,0 +1,111 @@
+-------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Work/OutputBasedRegs/code/build/fuelprices/logfiles/LoadCPI.txt
+  log type:  text
+ opened on:   6 Aug 2019, 17:20:50
+
+. 
+. 
+. ***********************************************************************
+. 
+. * Load CPI data
+. import excel "$rawdir/SeriesReport-20160411224153_e958e7.xlsx", sheet("BLS Da
+> ta Series") firstrow cellrange(A11) clear
+
+. drop HALF1 HALF2
+
+. rename Jan CPI1
+
+. rename Feb CPI2
+
+. rename Mar CPI3
+
+. rename Apr CPI4
+
+. rename May CPI5
+
+. rename Jun CPI6
+
+. rename Jul CPI7
+
+. rename Aug CPI8
+
+. rename Sep CPI9
+
+. rename Oct CPI10
+
+. rename Nov CPI11
+
+. rename Dec CPI12
+
+. destring Year CPI*, replace
+Year already numeric; no replace
+CPI1 already numeric; no replace
+CPI2 already numeric; no replace
+CPI3 already numeric; no replace
+CPI4 already numeric; no replace
+CPI5 already numeric; no replace
+CPI6 already numeric; no replace
+CPI7 already numeric; no replace
+CPI8 already numeric; no replace
+CPI9 already numeric; no replace
+CPI10 already numeric; no replace
+CPI11 already numeric; no replace
+CPI12 already numeric; no replace
+
+. drop if Year==.
+(9,962 observations deleted)
+
+. sort Year
+
+. reshape long CPI, i(Year) j(Month)
+(note: j = 1 2 3 4 5 6 7 8 9 10 11 12)
+
+Data                               wide   ->   long
+-----------------------------------------------------------------------------
+Number of obs.                       27   ->     324
+Number of variables                  13   ->       3
+j variable (12 values)                    ->   Month
+xij variables:
+                    CPI1 CPI2 ... CPI12   ->   CPI
+-----------------------------------------------------------------------------
+
+. 
+. * Define CPI for 2012 and Jan 2016
+. gen cpi2012 = CPI if Year==2012
+(312 missing values generated)
+
+. egen CPI2012 = mean(cpi2012)
+
+. drop cpi2012
+
+. gen cpijan2016 = -99
+
+. replace cpijan2016 = CPI if Year==2016 & Month==1
+(1 real change made)
+
+. egen CPIJan2016 = max(cpijan2016)
+
+. drop cpijan2016
+
+. 
+. 
+. * Clean up and save
+. drop if CPI==.          // months of 2016 with no data
+(10 observations deleted)
+
+. sort Year Month
+
+. label variable CPI "CPI, all urban, all goods less energy, not seasonally adj
+> usted"
+
+. save "$intdir/CPI.dta", replace
+(note: file C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/intdata/fuelprices/CP
+> I.dta not found)
+file C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/intdata/fuelprices/CPI.dta s
+> aved
+
+. 
+. 
+. 
+. capture log close

@@ -1,0 +1,78 @@
+-------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Work/OutputBasedRegs/code/build/other/logfiles/ElecGenAnnual.tx
+> t
+  log type:  text
+ opened on:   6 Aug 2019, 17:20:56
+
+. 
+. 
+. 
+. 
+. ***********************************************************************
+. 
+. * Load in generation data (MWh)
+. import excel using "$rawdir/annual_generation_state.xls", ///
+>         cellrange(A2) firstrow clear
+
+.         
+. * Keep US-total generation from all sources
+. keep if (STATE=="US-TOTAL" | STATE=="US-Total") & TYPEOFPRODUCER=="Total Elec
+> tric Power Industry"
+(47,046 observations deleted)
+
+. keep if ENERGYSOURCE=="Total"
+(351 observations deleted)
+
+. drop STATE TYPEOFPRODUCER ENERGYSOURCE F G H I J K
+
+. rename GENERATIONMegawatthours gen
+
+. rename YEAR Year
+
+. sort Year
+
+. 
+. * Merge in natural gas price data
+. merge 1:1 Year using "$gasdir/NatGasPrices_Real2016_Annual.dta"
+(note: variable Year was int, now float to accommodate using data's values)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             8
+        from master                         8  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                                19  (_merge==3)
+    -----------------------------------------
+
+. keep if _merge==3
+(8 observations deleted)
+
+. drop _merge
+
+. 
+. * Export natural gas price and elec gen
+. export delimited using "$outdir/AnnualElecGen_Pnatgas.csv", replace
+(note: file C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/output/other/AnnualEl
+> ecGen_Pnatgas.csv not found)
+file C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/output/other/AnnualElecGen_P
+> natgas.csv saved
+
+. 
+. * Export 2015 generation and gas price
+. keep if Year==2015
+(18 observations deleted)
+
+. keep gen PGas
+
+. export delimited using "$outdir/ElecGen_Pnatgas_2015.csv", replace
+(note: file C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/output/other/ElecGen_
+> Pnatgas_2015.csv not found)
+file C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/output/other/ElecGen_Pnatgas
+> _2015.csv saved
+
+. 
+. 
+. 
+. cap log close

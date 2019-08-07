@@ -1,0 +1,150 @@
+-------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Work/OutputBasedRegs/code/build/other/logfiles/EstimateBee.txt
+  log type:  text
+ opened on:   6 Aug 2019, 17:20:53
+
+. 
+. 
+. 
+. ***********************************************************************
+. 
+. * Load in cost curves from Excel
+. import excel using "$rawdir/NAP2015_CostCurves.xlsx", ///
+>         sheet("Sheet1") firstrow clear
+
+. 
+. * Simplify variable names
+. rename Fuel GPM
+
+. rename Cost Cost
+
+. rename Estimate Type    
+
+. 
+. * Create index
+. gen NN = _n
+
+. sort Type NN
+
+. bysort Type: gen N = _n
+
+. drop NN
+
+. bysort Type: egen MaxN = max(N)
+
+. 
+. * Calculate cumulative gpm improvement
+. gen GPMInc = GPM[_n-1] - GPM
+(1 missing value generated)
+
+. replace GPMInc = 0 if N==1
+(2 real changes made)
+
+. gen GPMCum = 0
+
+. replace GPMCum = GPMCum[_n-1] + GPMInc if N>1
+(52 real changes made)
+
+. 
+. * Calculate MC in $ / gpm
+. gen MC = Cost / GPMInc if N>1   
+(2 missing values generated)
+
+. 
+. * Regressions
+. regress MC GPMCum if Type=="high" & N>1
+
+      Source |       SS           df       MS      Number of obs   =        26
+-------------+----------------------------------   F(1, 24)        =     10.10
+       Model |  59980101.1         1  59980101.1   Prob > F        =    0.0041
+    Residual |   142560053        24  5940002.23   R-squared       =    0.2961
+-------------+----------------------------------   Adj R-squared   =    0.2668
+       Total |   202540155        25  8101606.18   Root MSE        =    2437.2
+
+------------------------------------------------------------------------------
+          MC |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      GPMCum |   3553.417   1118.242     3.18   0.004     1245.479    5861.356
+       _cons |  -404.8477   996.1925    -0.41   0.688    -2460.888    1651.192
+------------------------------------------------------------------------------
+
+. regress MC GPMCum if Type=="low" & N>1
+
+      Source |       SS           df       MS      Number of obs   =        26
+-------------+----------------------------------   F(1, 24)        =      7.53
+       Model |  53538486.1         1  53538486.1   Prob > F        =    0.0113
+    Residual |   170703693        24  7112653.85   R-squared       =    0.2388
+-------------+----------------------------------   Adj R-squared   =    0.2070
+       Total |   224242179        25  8969687.14   Root MSE        =      2667
+
+------------------------------------------------------------------------------
+          MC |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      GPMCum |   3246.591   1183.342     2.74   0.011     804.2927     5688.89
+       _cons |  -703.0822   1084.103    -0.65   0.523     -2940.56    1534.396
+------------------------------------------------------------------------------
+
+. regress MC GPMCum if Type=="high" & N>1 & N<MaxN
+
+      Source |       SS           df       MS      Number of obs   =        25
+-------------+----------------------------------   F(1, 23)        =      9.24
+       Model |  17752435.5         1  17752435.5   Prob > F        =    0.0058
+    Residual |  44182410.2        23  1920974.36   R-squared       =    0.2866
+-------------+----------------------------------   Adj R-squared   =    0.2556
+       Total |  61934845.7        24  2580618.57   Root MSE        =      1386
+
+------------------------------------------------------------------------------
+          MC |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      GPMCum |   2037.596   670.2703     3.04   0.006     651.0366    3424.156
+       _cons |   369.8899   576.7655     0.64   0.528    -823.2404     1563.02
+------------------------------------------------------------------------------
+
+. gen HighEst = _b[GPMCum]
+
+. regress MC GPMCum if Type=="low" & N>1 & N<MaxN
+
+      Source |       SS           df       MS      Number of obs   =        25
+-------------+----------------------------------   F(1, 23)        =      7.26
+       Model |  9898295.64         1  9898295.64   Prob > F        =    0.0129
+    Residual |  31359478.1        23  1363455.57   R-squared       =    0.2399
+-------------+----------------------------------   Adj R-squared   =    0.2069
+       Total |  41257773.7        24   1719073.9   Root MSE        =    1167.7
+
+------------------------------------------------------------------------------
+          MC |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      GPMCum |   1473.763   546.9756     2.69   0.013     342.2578    2605.268
+       _cons |   230.7338   483.5564     0.48   0.638    -769.5788    1231.046
+------------------------------------------------------------------------------
+
+. gen LowEst = _b[GPMCum]
+
+. 
+. * Average high and low cost curves
+. gen Slope = (HighEst + LowEst) / 2
+
+. sum Slope
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+       Slope |         54     1755.68           0    1755.68    1755.68
+
+. 
+. * Export slope to csv
+. keep Slope
+
+. duplicates drop
+
+Duplicates in terms of all variables
+
+(53 observations deleted)
+
+. outfile using "$outdir/Footprint_B_EE.csv", comma replace
+(note: file C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/output/other/Footprin
+> t_B_EE.csv not found)
+
+. 
+. 
+. cap log close

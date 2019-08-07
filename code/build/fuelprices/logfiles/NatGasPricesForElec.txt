@@ -1,0 +1,103 @@
+-------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Work/OutputBasedRegs/code/build/fuelprices/logfiles/NatGasPrice
+> sForElec.txt
+  log type:  text
+ opened on:   6 Aug 2019, 17:20:52
+
+. 
+. 
+. 
+. ***********************************************************************
+. 
+. * Load and clean the natural gas price data
+. import excel "$rawdir/N3045US3a.xls", sheet("Data 1") firstrow cellrange(A2) 
+> clear
+
+. drop in 1
+(1 observation deleted)
+
+. rename Sourcekey datestring
+
+. rename N3045US3 PGas_Nom
+
+. gen Date=date(datestring,"DMY")
+(1 missing value generated)
+
+. format Date %dDmCY
+
+. drop datestring
+
+. gen Year = year(Date)
+(1 missing value generated)
+
+. destring PGas_Nom, replace
+PGas_Nom: all characters numeric; replaced as double
+(1 missing value generated)
+
+. drop Date
+
+. keep if Year<2016 
+(4 observations deleted)
+
+. sort Year
+
+. tempfile tempngprice
+
+. save "`tempngprice'"
+file C:\Users\RYANKE~1\AppData\Local\Temp\ST_50d0_000001.tmp saved
+
+. 
+. * Load CPI data and merge
+. clear
+
+. use "$intdir/CPI.dta"
+
+. sort Year
+
+. collapse(mean) CPI*, by(Year)
+
+. merge 1:1 Year using "`tempngprice'"
+(note: variable Year was int, now float to accommodate using data's values)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             8
+        from master                         8  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                                19  (_merge==3)
+    -----------------------------------------
+
+. keep if _merge==3
+(8 observations deleted)
+
+. drop _merge
+
+. 
+. * Obtain real Jan 2016 prices in $mmBtu. Output data.
+. gen PGas = PGas_Nom * CPIJan2016 / CPI
+
+. drop PGas_Nom CPI*
+
+. replace PGas = PGas / 1.036             // mmBtu per mcf, using https://www.e
+> ia.gov/tools/faqs/faq.php?id=45
+(19 real changes made)
+
+. label variable PGas "Real nat gas price for elec power, Jan 2016 $/mmBtu"
+
+. order Year PGas
+
+. keep Year PGas
+
+. sort Year
+
+. save "$intdir/NatGasPrices_Real2016_Annual.dta", replace
+(note: file C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/intdata/fuelprices/Na
+> tGasPrices_Real2016_Annual.dta not found)
+file C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/intdata/fuelprices/NatGasPri
+> ces_Real2016_Annual.dta saved
+
+. 
+. 
+. capture log close
