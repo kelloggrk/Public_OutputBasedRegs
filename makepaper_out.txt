@@ -1,0 +1,1284 @@
++ REPODIR=C:/Work/OutputBasedRegs
++ DBDIR='C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs'
++ find 'C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/intdata' -type f -delete
++ find 'C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/output' -type f -delete
++ find C:/Work/OutputBasedRegs/Paper/Figures -type f -delete
++ find C:/Work/OutputBasedRegs/Paper/Tables -type f -delete
++ find C:/Work/OutputBasedRegs/Paper/SingleNumberTex -type f -delete
++ rm C:/Work/OutputBasedRegs/paper/OutputBasedStandards.pdf
++ cp 'C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/images/etaUncertaintyFigures.pptx' 'C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/images/Fig_etauncert_panelA.pdf' 'C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/images/Fig_etauncert_panelB.pdf' 'C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/images/Fig_etauncert_panelC.pdf' 'C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/images/Fig_etauncert_panelD.pdf' 'C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/images/Fig_Funcert_panelA.pdf' 'C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/images/Fig_Funcert_panelB.pdf' 'C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/images/Fig_Funcert_panelC.pdf' 'C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/images/Fig_Funcert_panelD.pdf' 'C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/images/FUncertaintyFigures.pptx' C:/Work/OutputBasedRegs/paper/Figures
++ StataSE-64 -e do C:/Work/OutputBasedRegs/code/build/fuelprices/LoadCPI.do
++ StataSE-64 -e do C:/Work/OutputBasedRegs/code/build/fuelprices/GasolinePriceVariance.do
++ StataSE-64 -e do C:/Work/OutputBasedRegs/code/build/fuelprices/HHPriceVariance.do
++ StataSE-64 -e do C:/Work/OutputBasedRegs/code/build/fuelprices/NatGasPricesForElec.do
++ StataSE-64 -e do C:/Work/OutputBasedRegs/code/build/other/EstimateBee.do
++ StataSE-64 -e do C:/Work/OutputBasedRegs/code/build/other/LifetimeDiscMilesPerVehicle.do
++ StataSE-64 -e do C:/Work/OutputBasedRegs/code/build/other/FootprintAnnual.do
++ StataSE-64 -e do C:/Work/OutputBasedRegs/code/build/other/VMTAnnual.do
++ StataSE-64 -e do C:/Work/OutputBasedRegs/code/build/other/ElecGenAnnual.do
++ rm ElecGenAnnual.log EstimateBee.log FootprintAnnual.log GasolinePriceVariance.log HHPriceVariance.log LifetimeDiscMilesPerVehicle.log LoadCPI.log NatGasPricesForElec.log VMTAnnual.log
++ matlab -nosplash -wait -nodesktop -r 'cd C:/Work/OutputBasedRegs/code/matlabmodel; mainscript; exit'
++ cd paper
++ pdflatex OutputBasedStandards.tex
+pdflatex: warning: running with administrator privileges
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit)
+entering extended mode
+(OutputBasedStandards.tex
+LaTeX2e <2018-12-01>
+
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\articl
+e.cls"
+Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
+
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\size12
+.clo"))
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\ams
+math.sty"
+For additional information on amsmath, use the `?' option.
+
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\ams
+text.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\ams
+gen.sty"))
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\ams
+bsy.sty")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\ams
+opn.sty"))
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\gr
+aphicx.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\ke
+yval.sty")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\gr
+aphics.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\tr
+ig.sty")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cf
+g\graphics.cfg")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-de
+f\pdftex.def")))
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/url\url.sty
+")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\after
+page.sty")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/setspace\se
+tspace.sty")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amscls\amst
+hm.sty")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\cap
+tion.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\cap
+tion3.sty"))
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/subfig\subf
+ig.sty")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/multirow\mu
+ltirow.sty") (OutputBasedStandards.aux
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+)
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii
+\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\ep
+stopdf-base.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+infwarerr.sty")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\gr
+fext.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+kvdefinekeys.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+ltxcmds.sty")))
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\kv
+options.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+kvsetkeys.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+etexcmds.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+ifluatex.sty"))))
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+pdftexcmds.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+ifpdf.sty")))
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\omscmr
+.fd") [1{C:/Users/Ryan Kellogg/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.ma
+p}] [1] [2] [3] [4] [5] [6] [7] [8]
+Overfull \hbox (7.40533pt too wide) in paragraph at lines 164--165
+[]\OT1/cmr/m/n/12 Finally, I fol-low Weitz-man (1974) by as-sum-ing that $\OML/
+cmm/m/it/12 B\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 Q; E; ; F\OT1/cmr/m/n/12 )$ can
+ be well-approximated
+[9] [10] [11]
+
+pdfTeX warning: pdflatex.exe (file ./Figures/Fig_Funcert_panelA.pdf): PDF inclu
+sion: found PDF version <1.6>, but at most version <1.5> allowed
+
+Overfull \hbox (118.60985pt too wide) in paragraph at lines 208--208
+[] [] 
+
+
+pdfTeX warning: pdflatex.exe (file ./Figures/Fig_Funcert_panelB.pdf): PDF inclu
+sion: found PDF version <1.6>, but at most version <1.5> allowed
+
+Overfull \hbox (118.60985pt too wide) in paragraph at lines 209--209
+[] [] 
+
+
+pdfTeX warning: pdflatex.exe (file ./Figures/Fig_Funcert_panelC.pdf): PDF inclu
+sion: found PDF version <1.6>, but at most version <1.5> allowed
+
+Overfull \hbox (118.60985pt too wide) in paragraph at lines 211--211
+[] [] 
+
+
+pdfTeX warning: pdflatex.exe (file ./Figures/Fig_Funcert_panelD.pdf): PDF inclu
+sion: found PDF version <1.6>, but at most version <1.5> allowed
+
+Overfull \hbox (118.60985pt too wide) in paragraph at lines 212--212
+[] [] 
+[12] [13 <./Figures/Fig_Funcert_panelA.pdf> <./Figures/Fig_Funcert_panelB.pdf> 
+<./Figures/Fig_Funcert_panelC.pdf> <./Figures/Fig_Funcert_panelD.pdf>] [14]
+
+pdfTeX warning: pdflatex.exe (file ./Figures/Fig_etauncert_panelA.pdf): PDF inc
+lusion: found PDF version <1.6>, but at most version <1.5> allowed
+
+Overfull \hbox (118.60985pt too wide) in paragraph at lines 253--253
+[] [] 
+
+
+pdfTeX warning: pdflatex.exe (file ./Figures/Fig_etauncert_panelB.pdf): PDF inc
+lusion: found PDF version <1.6>, but at most version <1.5> allowed
+
+Overfull \hbox (118.60985pt too wide) in paragraph at lines 254--254
+[] [] 
+
+
+pdfTeX warning: pdflatex.exe (file ./Figures/Fig_etauncert_panelC.pdf): PDF inc
+lusion: found PDF version <1.6>, but at most version <1.5> allowed
+
+Overfull \hbox (118.60985pt too wide) in paragraph at lines 256--256
+[] [] 
+
+
+pdfTeX warning: pdflatex.exe (file ./Figures/Fig_etauncert_panelD.pdf): PDF inc
+lusion: found PDF version <1.6>, but at most version <1.5> allowed
+
+Overfull \hbox (118.60985pt too wide) in paragraph at lines 257--257
+[] [] 
+[15] [16 <./Figures/Fig_etauncert_panelA.pdf> <./Figures/Fig_etauncert_panelB.p
+df> <./Figures/Fig_etauncert_panelC.pdf> <./Figures/Fig_etauncert_panelD.pdf>]
+[17] [18] [19] (SingleNumberTex/foot_eta_optgamma.tex)
+(SingleNumberTex/vmt_eta_optgamma.tex) (SingleNumberTex/elec_eta_optgamma.tex)
+(SingleNumberTex/foot_eta_EWfps.tex) (SingleNumberTex/vmt_eta_EWfes.tex)
+(SingleNumberTex/elec_eta_EWegs.tex) (SingleNumberTex/foot_rho.tex)
+(SingleNumberTex/vmt_rho.tex) (SingleNumberTex/elec_rho.tex) [20]
+(SingleNumberTex/foot_discrate.tex) [21] (Tables/tbl_footprintinputs.tex)
+(SingleNumberTex/foot_phig.tex) (SingleNumberTex/foot_F0.tex)
+(SingleNumberTex/foot_sigmaFh.tex) (SingleNumberTex/foot_EWfphfs.tex)
+(SingleNumberTex/foot_sigmaF.tex) [22] (SingleNumberTex/foot_EQfp.tex)
+(SingleNumberTex/foot_EEfp.tex) (SingleNumberTex/foot_EWfpo.tex)
+(SingleNumberTex/foot_EWfp0.tex) (SingleNumberTex/foot_ratio_flat_opt.tex)
+(SingleNumberTex/foot_optgamma.tex)
+(SingleNumberTex/foot_ratio_optgamma_actgamma.tex)
+(SingleNumberTex/foot_pctgain_ingamma_actgamma.tex) [23]
+(SingleNumberTex/foot_sigmaeta_rw.tex) (SingleNumberTex/foot_optgamma_rw.tex)
+(SingleNumberTex/foot_sigmaeta_rw.tex) [24 <./Figures/FootprintPlot_doubleuncer
+t_paper.pdf>] (SingleNumberTex/vmt_Q0.tex) (SingleNumberTex/foot_E0.tex)
+[25] (SingleNumberTex/vmt_elast0.tex) (SingleNumberTex/vmt_elast0.tex)
+(SingleNumberTex/vmt_elasth.tex) (SingleNumberTex/vmt_elast0.tex)
+(SingleNumberTex/vmt_optgammah.tex) (SingleNumberTex/vmt_optgamma.tex)
+(Tables/tbl_VMTinputs.tex) (SingleNumberTex/foot_F0.tex)
+(SingleNumberTex/foot_phig.tex) [26] (SingleNumberTex/foot_E0.tex)
+(SingleNumberTex/vmt_optgamma.tex) (SingleNumberTex/vmt_ingamma.tex)
+(SingleNumberTex/vmt_EWfes.tex) (SingleNumberTex/vmt_EWfe0.tex)
+(SingleNumberTex/vmt_EWfei.tex) (SingleNumberTex/vmt_elast0.tex) [27] [28 <./Fi
+gures/FuelEconomyPlot_doubleuncert_paper.pdf>]
+(SingleNumberTex/elec_elastQ0.tex) (SingleNumberTex/elec_elastQh.tex)
+(SingleNumberTex/elec_elastQh.tex) (SingleNumberTex/elec_elastQ0.tex)
+(SingleNumberTex/elec_CullenMansur.tex) (SingleNumberTex/elec_dEdQ.tex)
+[29] (Tables/tbl_elecinputs.tex) (SingleNumberTex/elec_sigmaF.tex) [30]
+(SingleNumberTex/elec_EWegi.tex) (SingleNumberTex/elec_EWeg0.tex)
+(SingleNumberTex/elec_optgamma.tex)
+(SingleNumberTex/elec_ratio_optgamma_intgamma.tex)
+(SingleNumberTex/elec_ratio_sigmaeta_Eeta.tex) (SingleNumberTex/elec_EWego.tex)
+[31] (SingleNumberTex/elec_eghalf_optgamma.tex)
+(SingleNumberTex/elec_egdoub_optgamma.tex)
+(SingleNumberTex/elec_eghalf_EWeg0.tex) (SingleNumberTex/elec_eghalf_EWegi.tex)
+(SingleNumberTex/elec_eghalf_EWegs.tex) (SingleNumberTex/elec_egdoub_EWeg0.tex)
+(SingleNumberTex/elec_egdoub_EWegi.tex) (SingleNumberTex/elec_egdoub_EWegs.tex)
+[32 <./Figures/USElectricityPlot_doubleuncert_paper.pdf>]
+(SingleNumberTex/elec_elastQh.tex) (SingleNumberTex/elec_elastQ0.tex)
+(SingleNumberTex/elec_egh_EWeg0.tex) (SingleNumberTex/elec_egh_EWegi.tex)
+(SingleNumberTex/elec_egh_EWego.tex) (SingleNumberTex/elec_egh_optgamma.tex)
+(SingleNumberTex/elec_egrh_EWeg0.tex) (SingleNumberTex/elec_egrh_EWegi.tex)
+[33] [34] [35] [36] [37]
+Underfull \hbox (badness 10000) in paragraph at lines 522--523
+\OT1/cmr/m/n/12 https://www.whitehouse.gov/sites/default/files/omb/inforeg/soci
+al[]cost[]of[]carbon[]for
+[38] [39] [40] [1] [2] [3]
+Overfull \hbox (29.18568pt too wide) in paragraph at lines 649--650
+[]\OT1/cmr/m/n/12 The first brack-eted term in equa-tion (31[]) is the sec-ond 
+or-der Tay-lor ex-pan-sion of $\OML/cmm/m/it/12 B\OT1/cmr/m/n/12 (\OML/cmm/m/it
+/12 Q; E; ; F\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12  
+[4] [5] [6] [7] [8] [9]
+Overfull \hbox (48.04932pt too wide) detected at line 851
+[][]\OMS/cmsy/m/n/12 j[] \OT1/cmr/m/n/12 : [][] [][] [] [] \OML/cmm/m/it/12 w\O
+T1/cmr/m/n/12 (\OML/cmm/m/it/12 F\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 \OT1/cmr/m
+/n/12 )\OML/cmm/m/it/12 v\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 \OT1/cmr/m/n/12 )\O
+ML/cmm/m/it/12 dFd \OT1/cmr/m/n/12 = 0\OML/cmm/m/it/12 :
+[10]
+Overfull \hbox (34.90158pt too wide) detected at line 856
+[][]\OMS/cmsy/m/n/12 j[] \OT1/cmr/m/n/12 : [][] [][] [] [] \OML/cmm/m/it/12 w\O
+T1/cmr/m/n/12 (\OML/cmm/m/it/12 F\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 \OT1/cmr/m
+/n/12 )\OML/cmm/m/it/12 v\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 \OT1/cmr/m/n/12 )\O
+ML/cmm/m/it/12 dFd \OT1/cmr/m/n/12 = 0\OML/cmm/m/it/12 ;
+[11] [12] [13] (SingleNumberTex/foot_B_QQwIS.tex) (SingleNumberTex/foot_Q0.tex)
+(SingleNumberTex/foot_W0.tex) (SingleNumberTex/foot_B_QQwIS.tex)
+(SingleNumberTex/foot_B_QQ.tex) (SingleNumberTex/foot_B_EE.tex)
+(SingleNumberTex/foot_carslope.tex) (SingleNumberTex/foot_truckslope.tex)
+(SingleNumberTex/foot_gasCO2.tex) (SingleNumberTex/foot_B_QE.tex)
+(SingleNumberTex/foot_Q0.tex) (SingleNumberTex/foot_E0.tex)
+(SingleNumberTex/foot_credit.tex) (SingleNumberTex/foot_EQfp.tex)
+(SingleNumberTex/foot_EEfp.tex) (SingleNumberTex/foot_sigmaF1.tex)
+(SingleNumberTex/foot_sigmaF10.tex) (SingleNumberTex/foot_sigmaF.tex) [14]
+(SingleNumberTex/foot_AR1hat.tex) (SingleNumberTex/foot_footvol1.tex)
+(SingleNumberTex/foot_DFGLS.tex) (SingleNumberTex/foot_AR1.tex)
+(SingleNumberTex/foot_sigmafoot.tex) (SingleNumberTex/foot_footvol1_rw.tex)
+(SingleNumberTex/foot_sigmafoot_rw.tex) (SingleNumberTex/foot_F0.tex)
+(SingleNumberTex/foot_E0.tex) (SingleNumberTex/vmt_AR1.tex)
+(SingleNumberTex/vmt_sigmavmt.tex) (SingleNumberTex/elec_Q0.tex)
+(SingleNumberTex/elec_P0.tex) [15] (SingleNumberTex/elec_CullenMansur.tex)
+(SingleNumberTex/elec_E0.tex) (SingleNumberTex/elec_Eng.tex)
+(SingleNumberTex/elec_Ecoal.tex) (SingleNumberTex/elec_PCoal0.tex)
+(SingleNumberTex/elec_mmBtu_per_short.tex) (SingleNumberTex/elec_F0.tex)
+(SingleNumberTex/elec_mmBtu_per_mcf.tex) (SingleNumberTex/elec_rho.tex)
+[16] (SingleNumberTex/elec_AR1hat.tex) (SingleNumberTex/elec_AR1.tex)
+(SingleNumberTex/elec_DFGLS.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 979--980
+[]\OT1/cmr/m/n/12 Energy In-for-ma-tion Ad-min-is-tra-tion (2011), ``Vol-un-tar
+y Re-port-ing of
+
+Underfull \hbox (badness 10000) in paragraph at lines 979--980
+\OT1/cmr/m/n/12 Green-house Gases Pro-gram: Fuel Emis-sion Co-ef-fi-cients''. A
+c-cessed from
+[17] (OutputBasedStandards.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ )
+(\end occurred inside a group at level 1)
+
+### semi simple group (level 1) entered at line 102 (\begingroup)
+### bottom level
+(see the transcript file for additional information)<C:/Users/Ryan Kellogg/AppD
+ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Use
+rs/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmbx12.pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmex10.pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Ryan Kellogg/App
+Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Us
+ers/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmmi6.pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Ryan Kellogg/AppDa
+ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users
+/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmr12.pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmr17.pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Ryan Kellogg/AppData/L
+ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Ryan
+ Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.
+pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmr8.pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Ryan Kellogg/AppData/Local/
+Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Ryan Kel
+logg/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb
+><C:/Users/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmsy8.pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Ryan Kellogg/AppData/Local/Pr
+ograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on OutputBasedStandards.pdf (58 pages, 2677557 bytes).
+Transcript written on OutputBasedStandards.log.
++ pdflatex OutputBasedStandards.tex
+pdflatex: warning: running with administrator privileges
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit)
+entering extended mode
+(OutputBasedStandards.tex
+LaTeX2e <2018-12-01>
+
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\articl
+e.cls"
+Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
+
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\size12
+.clo"))
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\ams
+math.sty"
+For additional information on amsmath, use the `?' option.
+
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\ams
+text.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\ams
+gen.sty"))
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\ams
+bsy.sty")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\ams
+opn.sty"))
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\gr
+aphicx.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\ke
+yval.sty")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\gr
+aphics.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\tr
+ig.sty")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cf
+g\graphics.cfg")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-de
+f\pdftex.def")))
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/url\url.sty
+")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\after
+page.sty")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/setspace\se
+tspace.sty")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amscls\amst
+hm.sty")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\cap
+tion.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\cap
+tion3.sty"))
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/subfig\subf
+ig.sty")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/multirow\mu
+ltirow.sty") (OutputBasedStandards.aux
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+)
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii
+\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\ep
+stopdf-base.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+infwarerr.sty")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\gr
+fext.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+kvdefinekeys.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+ltxcmds.sty")))
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\kv
+options.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+kvsetkeys.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+etexcmds.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+ifluatex.sty"))))
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+pdftexcmds.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+ifpdf.sty")))
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\omscmr
+.fd") [1{C:/Users/Ryan Kellogg/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.ma
+p}] [1] [2] [3] [4] [5] [6] [7] [8]
+Overfull \hbox (7.40533pt too wide) in paragraph at lines 164--165
+[]\OT1/cmr/m/n/12 Finally, I fol-low Weitz-man (1974) by as-sum-ing that $\OML/
+cmm/m/it/12 B\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 Q; E; ; F\OT1/cmr/m/n/12 )$ can
+ be well-approximated
+[9] [10] [11]
+
+pdfTeX warning: pdflatex.exe (file ./Figures/Fig_Funcert_panelA.pdf): PDF inclu
+sion: found PDF version <1.6>, but at most version <1.5> allowed
+
+Overfull \hbox (118.60985pt too wide) in paragraph at lines 208--208
+[] [] 
+
+
+pdfTeX warning: pdflatex.exe (file ./Figures/Fig_Funcert_panelB.pdf): PDF inclu
+sion: found PDF version <1.6>, but at most version <1.5> allowed
+
+Overfull \hbox (118.60985pt too wide) in paragraph at lines 209--209
+[] [] 
+
+
+pdfTeX warning: pdflatex.exe (file ./Figures/Fig_Funcert_panelC.pdf): PDF inclu
+sion: found PDF version <1.6>, but at most version <1.5> allowed
+
+Overfull \hbox (118.60985pt too wide) in paragraph at lines 211--211
+[] [] 
+
+
+pdfTeX warning: pdflatex.exe (file ./Figures/Fig_Funcert_panelD.pdf): PDF inclu
+sion: found PDF version <1.6>, but at most version <1.5> allowed
+
+Overfull \hbox (118.60985pt too wide) in paragraph at lines 212--212
+[] [] 
+[12] [13 <./Figures/Fig_Funcert_panelA.pdf> <./Figures/Fig_Funcert_panelB.pdf> 
+<./Figures/Fig_Funcert_panelC.pdf> <./Figures/Fig_Funcert_panelD.pdf>] [14]
+
+pdfTeX warning: pdflatex.exe (file ./Figures/Fig_etauncert_panelA.pdf): PDF inc
+lusion: found PDF version <1.6>, but at most version <1.5> allowed
+
+Overfull \hbox (118.60985pt too wide) in paragraph at lines 253--253
+[] [] 
+
+
+pdfTeX warning: pdflatex.exe (file ./Figures/Fig_etauncert_panelB.pdf): PDF inc
+lusion: found PDF version <1.6>, but at most version <1.5> allowed
+
+Overfull \hbox (118.60985pt too wide) in paragraph at lines 254--254
+[] [] 
+
+
+pdfTeX warning: pdflatex.exe (file ./Figures/Fig_etauncert_panelC.pdf): PDF inc
+lusion: found PDF version <1.6>, but at most version <1.5> allowed
+
+Overfull \hbox (118.60985pt too wide) in paragraph at lines 256--256
+[] [] 
+
+
+pdfTeX warning: pdflatex.exe (file ./Figures/Fig_etauncert_panelD.pdf): PDF inc
+lusion: found PDF version <1.6>, but at most version <1.5> allowed
+
+Overfull \hbox (118.60985pt too wide) in paragraph at lines 257--257
+[] [] 
+[15] [16 <./Figures/Fig_etauncert_panelA.pdf> <./Figures/Fig_etauncert_panelB.p
+df> <./Figures/Fig_etauncert_panelC.pdf> <./Figures/Fig_etauncert_panelD.pdf>]
+[17] [18] [19] (SingleNumberTex/foot_eta_optgamma.tex)
+(SingleNumberTex/vmt_eta_optgamma.tex) (SingleNumberTex/elec_eta_optgamma.tex)
+(SingleNumberTex/foot_eta_EWfps.tex) (SingleNumberTex/vmt_eta_EWfes.tex)
+(SingleNumberTex/elec_eta_EWegs.tex) (SingleNumberTex/foot_rho.tex)
+(SingleNumberTex/vmt_rho.tex) (SingleNumberTex/elec_rho.tex) [20]
+(SingleNumberTex/foot_discrate.tex) [21] (Tables/tbl_footprintinputs.tex)
+(SingleNumberTex/foot_phig.tex) (SingleNumberTex/foot_F0.tex)
+(SingleNumberTex/foot_sigmaFh.tex) (SingleNumberTex/foot_EWfphfs.tex)
+(SingleNumberTex/foot_sigmaF.tex) [22] (SingleNumberTex/foot_EQfp.tex)
+(SingleNumberTex/foot_EEfp.tex) (SingleNumberTex/foot_EWfpo.tex)
+(SingleNumberTex/foot_EWfp0.tex) (SingleNumberTex/foot_ratio_flat_opt.tex)
+(SingleNumberTex/foot_optgamma.tex)
+(SingleNumberTex/foot_ratio_optgamma_actgamma.tex)
+(SingleNumberTex/foot_pctgain_ingamma_actgamma.tex) [23]
+(SingleNumberTex/foot_sigmaeta_rw.tex) (SingleNumberTex/foot_optgamma_rw.tex)
+(SingleNumberTex/foot_sigmaeta_rw.tex) [24 <./Figures/FootprintPlot_doubleuncer
+t_paper.pdf>] (SingleNumberTex/vmt_Q0.tex) (SingleNumberTex/foot_E0.tex)
+[25] (SingleNumberTex/vmt_elast0.tex) (SingleNumberTex/vmt_elast0.tex)
+(SingleNumberTex/vmt_elasth.tex) (SingleNumberTex/vmt_elast0.tex)
+(SingleNumberTex/vmt_optgammah.tex) (SingleNumberTex/vmt_optgamma.tex)
+(Tables/tbl_VMTinputs.tex) (SingleNumberTex/foot_F0.tex)
+(SingleNumberTex/foot_phig.tex) [26] (SingleNumberTex/foot_E0.tex)
+(SingleNumberTex/vmt_optgamma.tex) (SingleNumberTex/vmt_ingamma.tex)
+(SingleNumberTex/vmt_EWfes.tex) (SingleNumberTex/vmt_EWfe0.tex)
+(SingleNumberTex/vmt_EWfei.tex) (SingleNumberTex/vmt_elast0.tex) [27] [28 <./Fi
+gures/FuelEconomyPlot_doubleuncert_paper.pdf>]
+(SingleNumberTex/elec_elastQ0.tex) (SingleNumberTex/elec_elastQh.tex)
+(SingleNumberTex/elec_elastQh.tex) (SingleNumberTex/elec_elastQ0.tex)
+(SingleNumberTex/elec_CullenMansur.tex) (SingleNumberTex/elec_dEdQ.tex)
+[29] (Tables/tbl_elecinputs.tex) (SingleNumberTex/elec_sigmaF.tex) [30]
+(SingleNumberTex/elec_EWegi.tex) (SingleNumberTex/elec_EWeg0.tex)
+(SingleNumberTex/elec_optgamma.tex)
+(SingleNumberTex/elec_ratio_optgamma_intgamma.tex)
+(SingleNumberTex/elec_ratio_sigmaeta_Eeta.tex) (SingleNumberTex/elec_EWego.tex)
+[31] (SingleNumberTex/elec_eghalf_optgamma.tex)
+(SingleNumberTex/elec_egdoub_optgamma.tex)
+(SingleNumberTex/elec_eghalf_EWeg0.tex) (SingleNumberTex/elec_eghalf_EWegi.tex)
+(SingleNumberTex/elec_eghalf_EWegs.tex) (SingleNumberTex/elec_egdoub_EWeg0.tex)
+(SingleNumberTex/elec_egdoub_EWegi.tex) (SingleNumberTex/elec_egdoub_EWegs.tex)
+[32 <./Figures/USElectricityPlot_doubleuncert_paper.pdf>]
+(SingleNumberTex/elec_elastQh.tex) (SingleNumberTex/elec_elastQ0.tex)
+(SingleNumberTex/elec_egh_EWeg0.tex) (SingleNumberTex/elec_egh_EWegi.tex)
+(SingleNumberTex/elec_egh_EWego.tex) (SingleNumberTex/elec_egh_optgamma.tex)
+(SingleNumberTex/elec_egrh_EWeg0.tex) (SingleNumberTex/elec_egrh_EWegi.tex)
+[33] [34] [35] [36] [37]
+Underfull \hbox (badness 10000) in paragraph at lines 522--523
+\OT1/cmr/m/n/12 https://www.whitehouse.gov/sites/default/files/omb/inforeg/soci
+al[]cost[]of[]carbon[]for
+[38] [39] [40] [1] [2] [3]
+Overfull \hbox (29.18568pt too wide) in paragraph at lines 649--650
+[]\OT1/cmr/m/n/12 The first brack-eted term in equa-tion (31[]) is the sec-ond 
+or-der Tay-lor ex-pan-sion of $\OML/cmm/m/it/12 B\OT1/cmr/m/n/12 (\OML/cmm/m/it
+/12 Q; E; ; F\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12  
+[4] [5] [6] [7] [8] [9]
+Overfull \hbox (48.04932pt too wide) detected at line 851
+[][]\OMS/cmsy/m/n/12 j[] \OT1/cmr/m/n/12 : [][] [][] [] [] \OML/cmm/m/it/12 w\O
+T1/cmr/m/n/12 (\OML/cmm/m/it/12 F\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 \OT1/cmr/m
+/n/12 )\OML/cmm/m/it/12 v\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 \OT1/cmr/m/n/12 )\O
+ML/cmm/m/it/12 dFd \OT1/cmr/m/n/12 = 0\OML/cmm/m/it/12 :
+[10]
+Overfull \hbox (34.90158pt too wide) detected at line 856
+[][]\OMS/cmsy/m/n/12 j[] \OT1/cmr/m/n/12 : [][] [][] [] [] \OML/cmm/m/it/12 w\O
+T1/cmr/m/n/12 (\OML/cmm/m/it/12 F\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 \OT1/cmr/m
+/n/12 )\OML/cmm/m/it/12 v\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 \OT1/cmr/m/n/12 )\O
+ML/cmm/m/it/12 dFd \OT1/cmr/m/n/12 = 0\OML/cmm/m/it/12 ;
+[11] [12] [13] (SingleNumberTex/foot_B_QQwIS.tex) (SingleNumberTex/foot_Q0.tex)
+(SingleNumberTex/foot_W0.tex) (SingleNumberTex/foot_B_QQwIS.tex)
+(SingleNumberTex/foot_B_QQ.tex) (SingleNumberTex/foot_B_EE.tex)
+(SingleNumberTex/foot_carslope.tex) (SingleNumberTex/foot_truckslope.tex)
+(SingleNumberTex/foot_gasCO2.tex) (SingleNumberTex/foot_B_QE.tex)
+(SingleNumberTex/foot_Q0.tex) (SingleNumberTex/foot_E0.tex)
+(SingleNumberTex/foot_credit.tex) (SingleNumberTex/foot_EQfp.tex)
+(SingleNumberTex/foot_EEfp.tex) (SingleNumberTex/foot_sigmaF1.tex)
+(SingleNumberTex/foot_sigmaF10.tex) (SingleNumberTex/foot_sigmaF.tex) [14]
+(SingleNumberTex/foot_AR1hat.tex) (SingleNumberTex/foot_footvol1.tex)
+(SingleNumberTex/foot_DFGLS.tex) (SingleNumberTex/foot_AR1.tex)
+(SingleNumberTex/foot_sigmafoot.tex) (SingleNumberTex/foot_footvol1_rw.tex)
+(SingleNumberTex/foot_sigmafoot_rw.tex) (SingleNumberTex/foot_F0.tex)
+(SingleNumberTex/foot_E0.tex) (SingleNumberTex/vmt_AR1.tex)
+(SingleNumberTex/vmt_sigmavmt.tex) (SingleNumberTex/elec_Q0.tex)
+(SingleNumberTex/elec_P0.tex) [15] (SingleNumberTex/elec_CullenMansur.tex)
+(SingleNumberTex/elec_E0.tex) (SingleNumberTex/elec_Eng.tex)
+(SingleNumberTex/elec_Ecoal.tex) (SingleNumberTex/elec_PCoal0.tex)
+(SingleNumberTex/elec_mmBtu_per_short.tex) (SingleNumberTex/elec_F0.tex)
+(SingleNumberTex/elec_mmBtu_per_mcf.tex) (SingleNumberTex/elec_rho.tex)
+[16] (SingleNumberTex/elec_AR1hat.tex) (SingleNumberTex/elec_AR1.tex)
+(SingleNumberTex/elec_DFGLS.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 979--980
+[]\OT1/cmr/m/n/12 Energy In-for-ma-tion Ad-min-is-tra-tion (2011), ``Vol-un-tar
+y Re-port-ing of
+
+Underfull \hbox (badness 10000) in paragraph at lines 979--980
+\OT1/cmr/m/n/12 Green-house Gases Pro-gram: Fuel Emis-sion Co-ef-fi-cients''. A
+c-cessed from
+[17] (OutputBasedStandards.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ )
+(\end occurred inside a group at level 1)
+
+### semi simple group (level 1) entered at line 102 (\begingroup)
+### bottom level
+(see the transcript file for additional information)<C:/Users/Ryan Kellogg/AppD
+ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Use
+rs/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmbx12.pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmex10.pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Ryan Kellogg/App
+Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Us
+ers/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmmi6.pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Ryan Kellogg/AppDa
+ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users
+/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmr12.pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmr17.pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Ryan Kellogg/AppData/L
+ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Ryan
+ Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.
+pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmr8.pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Ryan Kellogg/AppData/Local/
+Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Ryan Kel
+logg/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb
+><C:/Users/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmsy8.pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Ryan Kellogg/AppData/Local/Pr
+ograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on OutputBasedStandards.pdf (58 pages, 2677557 bytes).
+Transcript written on OutputBasedStandards.log.
++ pdflatex OutputBasedStandards.tex
+pdflatex: warning: running with administrator privileges
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit)
+entering extended mode
+(OutputBasedStandards.tex
+LaTeX2e <2018-12-01>
+
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\articl
+e.cls"
+Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
+
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\size12
+.clo"))
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\ams
+math.sty"
+For additional information on amsmath, use the `?' option.
+
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\ams
+text.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\ams
+gen.sty"))
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\ams
+bsy.sty")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\ams
+opn.sty"))
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\gr
+aphicx.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\ke
+yval.sty")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\gr
+aphics.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\tr
+ig.sty")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cf
+g\graphics.cfg")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-de
+f\pdftex.def")))
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/url\url.sty
+")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\after
+page.sty")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/setspace\se
+tspace.sty")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amscls\amst
+hm.sty")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\cap
+tion.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\cap
+tion3.sty"))
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/subfig\subf
+ig.sty")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/multirow\mu
+ltirow.sty") (OutputBasedStandards.aux
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+)
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii
+\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\ep
+stopdf-base.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+infwarerr.sty")
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\gr
+fext.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+kvdefinekeys.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+ltxcmds.sty")))
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\kv
+options.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+kvsetkeys.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+etexcmds.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+ifluatex.sty"))))
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+pdftexcmds.sty"
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+ifpdf.sty")))
+("C:\Users\Ryan Kellogg\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\omscmr
+.fd") [1{C:/Users/Ryan Kellogg/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.ma
+p}] [1] [2] [3] [4] [5] [6] [7] [8]
+Overfull \hbox (7.40533pt too wide) in paragraph at lines 164--165
+[]\OT1/cmr/m/n/12 Finally, I fol-low Weitz-man (1974) by as-sum-ing that $\OML/
+cmm/m/it/12 B\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 Q; E; ; F\OT1/cmr/m/n/12 )$ can
+ be well-approximated
+[9] [10] [11]
+
+pdfTeX warning: pdflatex.exe (file ./Figures/Fig_Funcert_panelA.pdf): PDF inclu
+sion: found PDF version <1.6>, but at most version <1.5> allowed
+
+Overfull \hbox (118.60985pt too wide) in paragraph at lines 208--208
+[] [] 
+
+
+pdfTeX warning: pdflatex.exe (file ./Figures/Fig_Funcert_panelB.pdf): PDF inclu
+sion: found PDF version <1.6>, but at most version <1.5> allowed
+
+Overfull \hbox (118.60985pt too wide) in paragraph at lines 209--209
+[] [] 
+
+
+pdfTeX warning: pdflatex.exe (file ./Figures/Fig_Funcert_panelC.pdf): PDF inclu
+sion: found PDF version <1.6>, but at most version <1.5> allowed
+
+Overfull \hbox (118.60985pt too wide) in paragraph at lines 211--211
+[] [] 
+
+
+pdfTeX warning: pdflatex.exe (file ./Figures/Fig_Funcert_panelD.pdf): PDF inclu
+sion: found PDF version <1.6>, but at most version <1.5> allowed
+
+Overfull \hbox (118.60985pt too wide) in paragraph at lines 212--212
+[] [] 
+[12] [13 <./Figures/Fig_Funcert_panelA.pdf> <./Figures/Fig_Funcert_panelB.pdf> 
+<./Figures/Fig_Funcert_panelC.pdf> <./Figures/Fig_Funcert_panelD.pdf>] [14]
+
+pdfTeX warning: pdflatex.exe (file ./Figures/Fig_etauncert_panelA.pdf): PDF inc
+lusion: found PDF version <1.6>, but at most version <1.5> allowed
+
+Overfull \hbox (118.60985pt too wide) in paragraph at lines 253--253
+[] [] 
+
+
+pdfTeX warning: pdflatex.exe (file ./Figures/Fig_etauncert_panelB.pdf): PDF inc
+lusion: found PDF version <1.6>, but at most version <1.5> allowed
+
+Overfull \hbox (118.60985pt too wide) in paragraph at lines 254--254
+[] [] 
+
+
+pdfTeX warning: pdflatex.exe (file ./Figures/Fig_etauncert_panelC.pdf): PDF inc
+lusion: found PDF version <1.6>, but at most version <1.5> allowed
+
+Overfull \hbox (118.60985pt too wide) in paragraph at lines 256--256
+[] [] 
+
+
+pdfTeX warning: pdflatex.exe (file ./Figures/Fig_etauncert_panelD.pdf): PDF inc
+lusion: found PDF version <1.6>, but at most version <1.5> allowed
+
+Overfull \hbox (118.60985pt too wide) in paragraph at lines 257--257
+[] [] 
+[15] [16 <./Figures/Fig_etauncert_panelA.pdf> <./Figures/Fig_etauncert_panelB.p
+df> <./Figures/Fig_etauncert_panelC.pdf> <./Figures/Fig_etauncert_panelD.pdf>]
+[17] [18] [19] (SingleNumberTex/foot_eta_optgamma.tex)
+(SingleNumberTex/vmt_eta_optgamma.tex) (SingleNumberTex/elec_eta_optgamma.tex)
+(SingleNumberTex/foot_eta_EWfps.tex) (SingleNumberTex/vmt_eta_EWfes.tex)
+(SingleNumberTex/elec_eta_EWegs.tex) (SingleNumberTex/foot_rho.tex)
+(SingleNumberTex/vmt_rho.tex) (SingleNumberTex/elec_rho.tex) [20]
+(SingleNumberTex/foot_discrate.tex) [21] (Tables/tbl_footprintinputs.tex)
+(SingleNumberTex/foot_phig.tex) (SingleNumberTex/foot_F0.tex)
+(SingleNumberTex/foot_sigmaFh.tex) (SingleNumberTex/foot_EWfphfs.tex)
+(SingleNumberTex/foot_sigmaF.tex) [22] (SingleNumberTex/foot_EQfp.tex)
+(SingleNumberTex/foot_EEfp.tex) (SingleNumberTex/foot_EWfpo.tex)
+(SingleNumberTex/foot_EWfp0.tex) (SingleNumberTex/foot_ratio_flat_opt.tex)
+(SingleNumberTex/foot_optgamma.tex)
+(SingleNumberTex/foot_ratio_optgamma_actgamma.tex)
+(SingleNumberTex/foot_pctgain_ingamma_actgamma.tex) [23]
+(SingleNumberTex/foot_sigmaeta_rw.tex) (SingleNumberTex/foot_optgamma_rw.tex)
+(SingleNumberTex/foot_sigmaeta_rw.tex) [24 <./Figures/FootprintPlot_doubleuncer
+t_paper.pdf>] (SingleNumberTex/vmt_Q0.tex) (SingleNumberTex/foot_E0.tex)
+[25] (SingleNumberTex/vmt_elast0.tex) (SingleNumberTex/vmt_elast0.tex)
+(SingleNumberTex/vmt_elasth.tex) (SingleNumberTex/vmt_elast0.tex)
+(SingleNumberTex/vmt_optgammah.tex) (SingleNumberTex/vmt_optgamma.tex)
+(Tables/tbl_VMTinputs.tex) (SingleNumberTex/foot_F0.tex)
+(SingleNumberTex/foot_phig.tex) [26] (SingleNumberTex/foot_E0.tex)
+(SingleNumberTex/vmt_optgamma.tex) (SingleNumberTex/vmt_ingamma.tex)
+(SingleNumberTex/vmt_EWfes.tex) (SingleNumberTex/vmt_EWfe0.tex)
+(SingleNumberTex/vmt_EWfei.tex) (SingleNumberTex/vmt_elast0.tex) [27] [28 <./Fi
+gures/FuelEconomyPlot_doubleuncert_paper.pdf>]
+(SingleNumberTex/elec_elastQ0.tex) (SingleNumberTex/elec_elastQh.tex)
+(SingleNumberTex/elec_elastQh.tex) (SingleNumberTex/elec_elastQ0.tex)
+(SingleNumberTex/elec_CullenMansur.tex) (SingleNumberTex/elec_dEdQ.tex)
+[29] (Tables/tbl_elecinputs.tex) (SingleNumberTex/elec_sigmaF.tex) [30]
+(SingleNumberTex/elec_EWegi.tex) (SingleNumberTex/elec_EWeg0.tex)
+(SingleNumberTex/elec_optgamma.tex)
+(SingleNumberTex/elec_ratio_optgamma_intgamma.tex)
+(SingleNumberTex/elec_ratio_sigmaeta_Eeta.tex) (SingleNumberTex/elec_EWego.tex)
+[31] (SingleNumberTex/elec_eghalf_optgamma.tex)
+(SingleNumberTex/elec_egdoub_optgamma.tex)
+(SingleNumberTex/elec_eghalf_EWeg0.tex) (SingleNumberTex/elec_eghalf_EWegi.tex)
+(SingleNumberTex/elec_eghalf_EWegs.tex) (SingleNumberTex/elec_egdoub_EWeg0.tex)
+(SingleNumberTex/elec_egdoub_EWegi.tex) (SingleNumberTex/elec_egdoub_EWegs.tex)
+[32 <./Figures/USElectricityPlot_doubleuncert_paper.pdf>]
+(SingleNumberTex/elec_elastQh.tex) (SingleNumberTex/elec_elastQ0.tex)
+(SingleNumberTex/elec_egh_EWeg0.tex) (SingleNumberTex/elec_egh_EWegi.tex)
+(SingleNumberTex/elec_egh_EWego.tex) (SingleNumberTex/elec_egh_optgamma.tex)
+(SingleNumberTex/elec_egrh_EWeg0.tex) (SingleNumberTex/elec_egrh_EWegi.tex)
+[33] [34] [35] [36] [37]
+Underfull \hbox (badness 10000) in paragraph at lines 522--523
+\OT1/cmr/m/n/12 https://www.whitehouse.gov/sites/default/files/omb/inforeg/soci
+al[]cost[]of[]carbon[]for
+[38] [39] [40] [1] [2] [3]
+Overfull \hbox (29.18568pt too wide) in paragraph at lines 649--650
+[]\OT1/cmr/m/n/12 The first brack-eted term in equa-tion (31[]) is the sec-ond 
+or-der Tay-lor ex-pan-sion of $\OML/cmm/m/it/12 B\OT1/cmr/m/n/12 (\OML/cmm/m/it
+/12 Q; E; ; F\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12  
+[4] [5] [6] [7] [8] [9]
+Overfull \hbox (48.04932pt too wide) detected at line 851
+[][]\OMS/cmsy/m/n/12 j[] \OT1/cmr/m/n/12 : [][] [][] [] [] \OML/cmm/m/it/12 w\O
+T1/cmr/m/n/12 (\OML/cmm/m/it/12 F\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 \OT1/cmr/m
+/n/12 )\OML/cmm/m/it/12 v\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 \OT1/cmr/m/n/12 )\O
+ML/cmm/m/it/12 dFd \OT1/cmr/m/n/12 = 0\OML/cmm/m/it/12 :
+[10]
+Overfull \hbox (34.90158pt too wide) detected at line 856
+[][]\OMS/cmsy/m/n/12 j[] \OT1/cmr/m/n/12 : [][] [][] [] [] \OML/cmm/m/it/12 w\O
+T1/cmr/m/n/12 (\OML/cmm/m/it/12 F\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 \OT1/cmr/m
+/n/12 )\OML/cmm/m/it/12 v\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 \OT1/cmr/m/n/12 )\O
+ML/cmm/m/it/12 dFd \OT1/cmr/m/n/12 = 0\OML/cmm/m/it/12 ;
+[11] [12] [13] (SingleNumberTex/foot_B_QQwIS.tex) (SingleNumberTex/foot_Q0.tex)
+(SingleNumberTex/foot_W0.tex) (SingleNumberTex/foot_B_QQwIS.tex)
+(SingleNumberTex/foot_B_QQ.tex) (SingleNumberTex/foot_B_EE.tex)
+(SingleNumberTex/foot_carslope.tex) (SingleNumberTex/foot_truckslope.tex)
+(SingleNumberTex/foot_gasCO2.tex) (SingleNumberTex/foot_B_QE.tex)
+(SingleNumberTex/foot_Q0.tex) (SingleNumberTex/foot_E0.tex)
+(SingleNumberTex/foot_credit.tex) (SingleNumberTex/foot_EQfp.tex)
+(SingleNumberTex/foot_EEfp.tex) (SingleNumberTex/foot_sigmaF1.tex)
+(SingleNumberTex/foot_sigmaF10.tex) (SingleNumberTex/foot_sigmaF.tex) [14]
+(SingleNumberTex/foot_AR1hat.tex) (SingleNumberTex/foot_footvol1.tex)
+(SingleNumberTex/foot_DFGLS.tex) (SingleNumberTex/foot_AR1.tex)
+(SingleNumberTex/foot_sigmafoot.tex) (SingleNumberTex/foot_footvol1_rw.tex)
+(SingleNumberTex/foot_sigmafoot_rw.tex) (SingleNumberTex/foot_F0.tex)
+(SingleNumberTex/foot_E0.tex) (SingleNumberTex/vmt_AR1.tex)
+(SingleNumberTex/vmt_sigmavmt.tex) (SingleNumberTex/elec_Q0.tex)
+(SingleNumberTex/elec_P0.tex) [15] (SingleNumberTex/elec_CullenMansur.tex)
+(SingleNumberTex/elec_E0.tex) (SingleNumberTex/elec_Eng.tex)
+(SingleNumberTex/elec_Ecoal.tex) (SingleNumberTex/elec_PCoal0.tex)
+(SingleNumberTex/elec_mmBtu_per_short.tex) (SingleNumberTex/elec_F0.tex)
+(SingleNumberTex/elec_mmBtu_per_mcf.tex) (SingleNumberTex/elec_rho.tex)
+[16] (SingleNumberTex/elec_AR1hat.tex) (SingleNumberTex/elec_AR1.tex)
+(SingleNumberTex/elec_DFGLS.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 979--980
+[]\OT1/cmr/m/n/12 Energy In-for-ma-tion Ad-min-is-tra-tion (2011), ``Vol-un-tar
+y Re-port-ing of
+
+Underfull \hbox (badness 10000) in paragraph at lines 979--980
+\OT1/cmr/m/n/12 Green-house Gases Pro-gram: Fuel Emis-sion Co-ef-fi-cients''. A
+c-cessed from
+[17] (OutputBasedStandards.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ )
+(\end occurred inside a group at level 1)
+
+### semi simple group (level 1) entered at line 102 (\begingroup)
+### bottom level
+(see the transcript file for additional information)<C:/Users/Ryan Kellogg/AppD
+ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Use
+rs/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmbx12.pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmex10.pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Ryan Kellogg/App
+Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Us
+ers/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmmi6.pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Ryan Kellogg/AppDa
+ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users
+/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmr12.pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmr17.pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Ryan Kellogg/AppData/L
+ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Ryan
+ Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.
+pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmr8.pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Ryan Kellogg/AppData/Local/
+Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Ryan Kel
+logg/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb
+><C:/Users/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmsy8.pfb><C:/Users/Ryan Kellogg/AppData/Local/Programs/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Ryan Kellogg/AppData/Local/Pr
+ograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on OutputBasedStandards.pdf (58 pages, 2677557 bytes).
+Transcript written on OutputBasedStandards.log.
++ rm OutputBasedStandards.aux '*.bbl' '*.blg' OutputBasedStandards.log '*.out' '*.gz'
+rm: cannot remove '*.bbl': No such file or directory
+rm: cannot remove '*.blg': No such file or directory
+rm: cannot remove '*.out': No such file or directory
+rm: cannot remove '*.gz': No such file or directory
++ exit

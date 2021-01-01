@@ -27,6 +27,9 @@ do "globals.do"
 global codedir = "$repodir/code/build/other"
 global logdir = "$codedir/logfiles"
 
+* tex single number file folder
+global texdir = "$repodir/paper/SingleNumberTex"
+
 * Dropbox folder locations
 global rawdir = "$dropbox/rawdata/other"
 global gasdir = "$dropbox/intdata/fuelprices"
@@ -57,6 +60,25 @@ sort Year
 merge 1:1 Year using "$gasdir/NatGasPrices_Real2016_Annual.dta"
 keep if _merge==3
 drop _merge
+
+* Unit root tests for generation data
+tsset Year
+reg gen l.gen Year
+local AR1hat = _b[l.gen]
+file open fh using "$texdir/elec_AR1hat.tex", write replace text
+file write fh %8.2f (`AR1hat')
+file close fh
+local AR1 = 1 / (_N-3) * (_N * `AR1hat' + 1)	// correct AR1 for short T
+file open fh using "$texdir/elec_AR1.tex", write replace text
+file write fh %8.2f (`AR1')
+file close fh
+dfgls gen
+dfgls gen, max(0)
+local DFGLS = r(dft0)
+file open fh using "$texdir/elec_DFGLS.tex", write replace text
+file write fh %8.2f (`DFGLS')
+file close fh
+
 
 * Export natural gas price and elec gen
 export delimited using "$outdir/AnnualElecGen_Pnatgas.csv", replace

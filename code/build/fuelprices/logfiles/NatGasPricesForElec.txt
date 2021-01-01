@@ -3,7 +3,7 @@
        log:  C:/Work/OutputBasedRegs/code/build/fuelprices/logfiles/NatGasPrice
 > sForElec.txt
   log type:  text
- opened on:   6 Aug 2019, 17:20:52
+ opened on:  24 Jul 2020, 14:44:12
 
 . 
 . 
@@ -45,7 +45,7 @@ PGas_Nom: all characters numeric; replaced as double
 . tempfile tempngprice
 
 . save "`tempngprice'"
-file C:\Users\RYANKE~1\AppData\Local\Temp\ST_50d0_000001.tmp saved
+file C:\Users\RYANKE~1\AppData\Local\Temp\ST_3ea0_000001.tmp saved
 
 . 
 . * Load CPI data and merge
@@ -80,8 +80,10 @@ file C:\Users\RYANKE~1\AppData\Local\Temp\ST_50d0_000001.tmp saved
 
 . drop PGas_Nom CPI*
 
-. replace PGas = PGas / 1.036             // mmBtu per mcf, using https://www.e
+. local mmBtu_per_mcf = 1.036             // mmBtu per mcf, using https://www.e
 > ia.gov/tools/faqs/faq.php?id=45
+
+. replace PGas = PGas / `mmBtu_per_mcf'           
 (19 real changes made)
 
 . label variable PGas "Real nat gas price for elec power, Jan 2016 $/mmBtu"
@@ -99,5 +101,14 @@ file C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/intdata/fuelprices/NatGasPri
 > ces_Real2016_Annual.dta saved
 
 . 
+. * Write mmBtu per mcf conversion
+. file open fh using "$texdir/elec_mmBtu_per_mcf.tex", write replace text
+(note: file C:/Work/OutputBasedRegs/paper/SingleNumberTex/elec_mmBtu_per_mcf.te
+> x not found)
+
+. file write fh %8.3f (`mmBtu_per_mcf')
+
+. file close fh
+
 . 
 . capture log close

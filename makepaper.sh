@@ -25,8 +25,6 @@
 #-------------------------------------------------
 
 
-
-
 # DEFINE ROOT DIRECTORIES FOR REPO AND DROPBOX
 # MODIFY THESE TO YOUR FOLDER PATHS
 REPODIR="C:/Work/OutputBasedRegs"
@@ -35,6 +33,17 @@ DBDIR="C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs"
 # DELETE ALL DROPBOX INTERMEDIATE AND OUTPUT DATA FILES
 find "$DBDIR/intdata" -type f -delete
 find "$DBDIR/output" -type f -delete
+
+# DELETE ALL FIGURES, TABLES, AND SINGLE NUM TEX FILES STORED IN REPO RESULTS
+find "$REPODIR/Paper/Figures" -type f -delete
+find "$REPODIR/Paper/Tables" -type f -delete
+find "$REPODIR/Paper/SingleNumberTex" -type f -delete
+
+# DELETE COMPILED PAPER
+rm "$REPODIR/paper/OutputBasedStandards.pdf"
+
+# COPY IMAGES
+cp "$DBDIR/images"/*.* "$REPODIR/paper/Figures"
 
 
 #-------------------------------------------------

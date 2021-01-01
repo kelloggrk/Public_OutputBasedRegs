@@ -26,6 +26,9 @@ do "globals.do"
 global codedir = "$repodir/code/build/other"
 global logdir = "$codedir/logfiles"
 
+* tex single number file folder
+global texdir = "$repodir/paper/SingleNumberTex"
+
 * Dropbox folder locations
 global rawdir = "$dropbox/rawdata/other"
 global gasdir = "$dropbox/intdata/fuelprices"
@@ -71,6 +74,15 @@ merge 1:1 Year using "`tempvmt'"
 keep if _merge==3
 drop _merge
 sort Year
+
+* Unit root tests for vmt data
+tsset Year
+reg vmt l.vmt Year
+local AR1 = _b[l.vmt]
+file open fh using "$texdir/vmt_AR1.tex", write replace text
+file write fh %8.2f (`AR1')
+file close fh
+dfgls vmt
 
 
 * Export PGas and vmt

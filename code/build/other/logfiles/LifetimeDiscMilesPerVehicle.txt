@@ -3,7 +3,7 @@
        log:  C:/Work/OutputBasedRegs/code/build/other/logfiles/LifetimeDiscMile
 > sPerVehicle.txt
   log type:  text
- opened on:   6 Aug 2019, 17:20:54
+ opened on:  24 Jul 2020, 14:44:14
 
 . 
 . 
@@ -21,6 +21,17 @@
 . 
 . * Discount rate from Allcott and Wozny (2014)
 . local disc = 0.062
+
+. * Write discount rate to file
+. local discpct = `disc'*100
+
+. file open fh using "$texdir/foot_discrate.tex", write replace
+(note: file C:/Work/OutputBasedRegs/paper/SingleNumberTex/foot_discrate.tex not
+>  found)
+
+. file write fh "`discpct'"
+
+. file close fh
 
 . 
 . * Create discounted sum of VMT

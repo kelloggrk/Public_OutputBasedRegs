@@ -32,6 +32,9 @@ global rawdir = "$dropbox/rawdata/other"
 global gasdir = "$dropbox/intdata/fuelprices"
 global outdir = "$dropbox/output/other"
 
+* tex single number file folder
+global texdir = "$repodir/paper/SingleNumberTex"
+
 * Create a plain text log file to record output
 * Log file has same name as do-file
 log using "$logdir/`fname'.txt", replace text
@@ -67,6 +70,18 @@ merge 1:1 Year using "`tempgas'"
 keep if _merge==3
 drop _merge
 sort Year
+
+* Unit root tests for footprint data
+tsset Year
+reg fp l.fp Year
+dfgls fp
+dfgls fp, max(4)
+matrix list r(results)
+mat V = r(results)
+local DFGLS = V[1,5]
+file open fh using "$texdir/foot_DFGLS.tex", write replace text
+file write fh %8.2f (`DFGLS')
+file close fh
 
 
 * Export footprint and gas price

@@ -138,14 +138,6 @@ drop Ind
 outfile using "$outdir/GasolinePriceStdDeviations_Levels_MA.csv", comma replace
 
 
-* Export average std deviation over 10 years
-egen STD = mean(StdDev)
-drop StdDev
-rename STD StdDev
-duplicates drop
-outfile using "$outdir/MeanGasolinePriceStdDeviation_Levels_MA.csv", comma replace
-
-
 * Export csv of annual real gas prices
 clear
 use "$intdir/GasPrices_Retail_Real2012.dta" 

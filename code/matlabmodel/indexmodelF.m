@@ -173,7 +173,7 @@ classdef indexmodelF < indexmodel
             ifun = @(x,y) ifunreg(x,y) .* ifunpdf(x,y) / Wo;
 
             % integral. Bounds are 5 sd's on either side of mean eta and F
-            EW = integral2(ifun,-obj.sigma*5,obj.sigma*5,...
+            EW = integral2(ifun,-obj.sigmaeta*5,obj.sigmaeta*5,...
                 obj.F0-obj.sigmaF*5,obj.F0+obj.sigmaF*5,'AbsTol',1e-7) * Wo;
         end
         
@@ -190,9 +190,9 @@ classdef indexmodelF < indexmodel
             % E. Use highest eta; lowest F if B_EF<0; otherwise use highest
             % eta and highest F
             if obj.BEF<0
-                [Qmax,Emax] = uncon(obj,obj.sigma*5,obj.F0-obj.sigmaF*5);
+                [Qmax,Emax] = uncon(obj,obj.sigmaeta*5,obj.F0-obj.sigmaF*5);
             else
-                [Qmax,Emax] = uncon(obj,obj.sigma*5,obj.F0+obj.sigmaF*5);
+                [Qmax,Emax] = uncon(obj,obj.sigmaeta*5,obj.F0+obj.sigmaF*5);
             end
             % Lower bound intersects the expected social optimum
             % Standard will pass through this point if optimal standard always binds

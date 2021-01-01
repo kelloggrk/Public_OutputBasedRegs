@@ -3,7 +3,7 @@
        log:  C:/Work/OutputBasedRegs/code/build/fuelprices/logfiles/HHPriceVari
 > ance.txt
   log type:  text
- opened on:   6 Aug 2019, 17:20:52
+ opened on:  24 Jul 2020, 14:44:11
 
 . 
 . 
@@ -81,7 +81,7 @@ PHH_Nom: all characters numeric; replaced as double
 . tempfile HHNom
 
 . save "`HHNom'"
-file C:\Users\RYANKE~1\AppData\Local\Temp\ST_1f20_000001.tmp saved
+file C:\Users\RYANKE~1\AppData\Local\Temp\ST_4c1c_000001.tmp saved
 
 . 
 . * Merge with CPI data

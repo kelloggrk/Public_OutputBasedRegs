@@ -3,7 +3,7 @@
        log:  C:/Work/OutputBasedRegs/code/build/fuelprices/logfiles/GasolinePri
 > ceVariance.txt
   log type:  text
- opened on:   6 Aug 2019, 17:20:51
+ opened on:  24 Jul 2020, 14:44:10
 
 . 
 . 
@@ -766,26 +766,6 @@ Duplicates in terms of all variables
 > ce
 (note: file C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/output/fuelprices/Gas
 > olinePriceStdDeviations_Levels_MA.csv not found)
-
-. 
-. 
-. * Export average std deviation over 10 years
-. egen STD = mean(StdDev)
-
-. drop StdDev
-
-. rename STD StdDev
-
-. duplicates drop
-
-Duplicates in terms of all variables
-
-(119 observations deleted)
-
-. outfile using "$outdir/MeanGasolinePriceStdDeviation_Levels_MA.csv", comma re
-> place
-(note: file C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs/output/fuelprices/Mea
-> nGasolinePriceStdDeviation_Levels_MA.csv not found)
 
 . 
 . 

@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  C:/Work/OutputBasedRegs/code/build/other/logfiles/VMTAnnual.txt
   log type:  text
- opened on:   6 Aug 2019, 17:20:55
+ opened on:  24 Jul 2020, 14:44:17
 
 . 
 . 
@@ -35,7 +35,7 @@
 . tempfile tempall
 
 . save "`tempall'"
-file C:\Users\RYANKE~1\AppData\Local\Temp\ST_3a2c_000001.tmp saved
+file C:\Users\RYANKE~1\AppData\Local\Temp\ST_45a4_000001.tmp saved
 
 . 
 . * Keep data from through 2012 (baseline year for simulation)
@@ -48,7 +48,7 @@ file C:\Users\RYANKE~1\AppData\Local\Temp\ST_3a2c_000001.tmp saved
 . tempfile tempvmt
 
 . save "`tempvmt'"
-file C:\Users\RYANKE~1\AppData\Local\Temp\ST_3a2c_000002.tmp saved
+file C:\Users\RYANKE~1\AppData\Local\Temp\ST_45a4_000002.tmp saved
 
 . clear
 
@@ -79,6 +79,62 @@ file C:\Users\RYANKE~1\AppData\Local\Temp\ST_3a2c_000002.tmp saved
 . drop _merge
 
 . sort Year
+
+. 
+. * Unit root tests for vmt data
+. tsset Year
+        time variable:  Year, 1991 to 2012
+                delta:  1 unit
+
+. reg vmt l.vmt Year
+
+      Source |       SS           df       MS      Number of obs   =        21
+-------------+----------------------------------   F(2, 18)        =   1208.07
+       Model |  1.3459e+12         2  6.7296e+11   Prob > F        =    0.0000
+    Residual |  1.0027e+10        18   557054021   R-squared       =    0.9926
+-------------+----------------------------------   Adj R-squared   =    0.9918
+       Total |  1.3559e+12        20  6.7797e+10   Root MSE        =     23602
+
+------------------------------------------------------------------------------
+         vmt |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         vmt |
+         L1. |   1.044906   .0574555    18.19   0.000     .9241968    1.165616
+             |
+        Year |  -6486.857   2633.574    -2.46   0.024    -12019.79   -953.9239
+       _cons |   1.29e+07    5125128     2.52   0.022      2134811    2.37e+07
+------------------------------------------------------------------------------
+
+. local AR1 = _b[l.vmt]
+
+. file open fh using "$texdir/vmt_AR1.tex", write replace text
+(note: file C:/Work/OutputBasedRegs/paper/SingleNumberTex/vmt_AR1.tex not found
+> )
+
+. file write fh %8.2f (`AR1')
+
+. file close fh
+
+. dfgls vmt
+ 
+DF-GLS for vmt                                           Number of obs =    13
+Maxlag = 8 chosen by Schwert criterion
+ 
+               DF-GLS tau      1% Critical       5% Critical      10% Critical
+  [lags]     Test Statistic        Value             Value             Value
+------------------------------------------------------------------------------
+    8            -2.098           -3.770            -4.632            -3.505
+    7            -3.066           -3.770            -3.772            -2.900
+    6            -2.073           -3.770            -3.258            -2.568
+    5            -1.475           -3.770            -3.021            -2.452
+    4            -1.581           -3.770            -2.997            -2.497
+    3            -2.349           -3.770            -3.116            -2.649
+    2            -1.524           -3.770            -3.312            -2.850
+    1            -0.897           -3.770            -3.518            -3.047
+ 
+Opt Lag (Ng-Perron seq t) =  1 with RMSE  29805.26
+Min SC   =  20.79228 at lag  7 with RMSE  14867.36
+Min MAIC =  20.93154 at lag  1 with RMSE  29805.26
 
 . 
 . 

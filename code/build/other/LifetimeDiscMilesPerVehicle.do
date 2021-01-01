@@ -30,6 +30,9 @@ global logdir = "$codedir/logfiles"
 global rawdir = "$dropbox/rawdata/other"
 global outdir = "$dropbox/output/other"
 
+* tex single number file folder
+global texdir = "$repodir/paper/SingleNumberTex"
+
 * Create a plain text log file to record output
 * Log file has same name as do-file
 log using "$logdir/`fname'.txt", replace text
@@ -45,6 +48,11 @@ import excel using "$rawdir/BKZ_AER2013_worksheet.xlsx", sheet("NEW Cars") cellr
 
 * Discount rate from Allcott and Wozny (2014)
 local disc = 0.062
+* Write discount rate to file
+local discpct = `disc'*100
+file open fh using "$texdir/foot_discrate.tex", write replace
+file write fh "`discpct'"
+file close fh
 
 * Create discounted sum of VMT
 gen Ind = _n

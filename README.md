@@ -1,13 +1,16 @@
 # Public_OutputBasedRegs
 ## Repository for "Output and Attribute-Based Carbon Regulation Under Uncertainty", by Ryan Kellogg
 
+### Versions
+- The final version of this repo corresponds to the paper as published in the *Journal of Public Economics*, vol. 190 (October, 2020). An earlier version of the repo corresponds to the NBER working paper #26172 (August, 2019) version of the paper.
+
 ### Organization
 - All of the code for this project is stored in this repository. To run the code, you need to clone this repo to your local machine (or copy the files directly, preseving the subfolder structure).
   * The local folder holding the code files is referred to as `repodir` below.
 - All raw data files are available [here](https://www.dropbox.com/sh/bbumsxyrngrcmqm/AACTPSZy0i1YwZ6g1ZjaSs3fa?dl=0) in the `rawdata` folder.
-  * This link also includes intermediate (`intdata`) and output (`output`) data folders that are populated with the output from the Stata scripts.
+  * This link also includes intermediate (`intdata`) and output (`output`) data folders that are populated with the output from the Stata scripts. It also includes an `images` folder that contains the paper's figures 1 and 2.
   * The `rawdata` subfolders contain README.md files with additional info on how each raw data file was originally accessed.
-  * Users should download the `rawdata`, `intdata`, and `output` folders together into a single folder. This folder is referred to as `dropbox` below.
+  * Users should download the `rawdata`, `intdata`, `output`, and `images` folders together into a single folder. This folder is referred to as `dropbox` below.
 
 
 ### Stata
@@ -33,8 +36,7 @@ dropbox = 'C:/Users/Ryan Kellogg/Dropbox/OutputBasedRegs';
 
 
 ### LaTex
-- A full LaTex build is required to compile the paper.
-
+- A full LaTex build is required to compile the paper. The compiled paper will be located in the repo as `/paper/OutputBasedStandards.pdf`.
 
 ### Batch script
 - The file `makepaper.sh` will run all Stata, Matlab, and LaTex code in order, resulting in the final compiled paper. It must be called from a bash shell.

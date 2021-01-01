@@ -3,7 +3,7 @@
        log:  C:/Work/OutputBasedRegs/code/build/other/logfiles/ElecGenAnnual.tx
 > t
   log type:  text
- opened on:   6 Aug 2019, 17:20:56
+ opened on:  24 Jul 2020, 14:44:19
 
 . 
 . 
@@ -51,6 +51,91 @@
 
 . drop _merge
 
+. 
+. * Unit root tests for generation data
+. tsset Year
+        time variable:  Year, 1997 to 2015
+                delta:  1 unit
+
+. reg gen l.gen Year
+
+      Source |       SS           df       MS      Number of obs   =        18
+-------------+----------------------------------   F(2, 15)        =     35.54
+       Model |  3.7778e+17         2  1.8889e+17   Prob > F        =    0.0000
+    Residual |  7.9724e+16        15  5.3149e+15   R-squared       =    0.8257
+-------------+----------------------------------   Adj R-squared   =    0.8025
+       Total |  4.5751e+17        17  2.6912e+16   Root MSE        =    7.3e+07
+
+------------------------------------------------------------------------------
+         gen |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         gen |
+         L1. |   .6179515   .1780761     3.47   0.003     .2383914    .9975116
+             |
+        Year |    5893630    6536477     0.90   0.381     -8038542    1.98e+07
+       _cons |  -1.03e+10   1.25e+10    -0.82   0.424    -3.70e+10    1.64e+10
+------------------------------------------------------------------------------
+
+. local AR1hat = _b[l.gen]
+
+. file open fh using "$texdir/elec_AR1hat.tex", write replace text
+(note: file C:/Work/OutputBasedRegs/paper/SingleNumberTex/elec_AR1hat.tex not f
+> ound)
+
+. file write fh %8.2f (`AR1hat')
+
+. file close fh
+
+. local AR1 = 1 / (_N-3) * (_N * `AR1hat' + 1)    // correct AR1 for short T
+
+. file open fh using "$texdir/elec_AR1.tex", write replace text
+(note: file C:/Work/OutputBasedRegs/paper/SingleNumberTex/elec_AR1.tex not foun
+> d)
+
+. file write fh %8.2f (`AR1')
+
+. file close fh
+
+. dfgls gen
+ 
+DF-GLS for gen                                           Number of obs =    11
+Maxlag = 7 chosen by Schwert criterion
+ 
+               DF-GLS tau      1% Critical       5% Critical      10% Critical
+  [lags]     Test Statistic        Value             Value             Value
+------------------------------------------------------------------------------
+    7            -1.099           -3.770            -4.929            -3.642
+    6            -1.126           -3.770            -3.828            -2.861
+    5            -1.203           -3.770            -3.218            -2.467
+    4            -1.136           -3.770            -2.989            -2.368
+    3            -1.161           -3.770            -3.030            -2.474
+    2            -0.619           -3.770            -3.229            -2.692
+    1            -0.950           -3.770            -3.476            -2.932
+ 
+Opt Lag (Ng-Perron seq t) = 0 [use maxlag(0)]
+Min SC   =  36.85309 at lag  1 with RMSE  8.09e+07
+Min MAIC =  36.84838 at lag  1 with RMSE  8.09e+07
+
+. dfgls gen, max(0)
+ 
+DF-GLS for gen                                           Number of obs =    18
+ 
+               DF-GLS tau      1% Critical       5% Critical      10% Critical
+  [lags]     Test Statistic        Value             Value             Value
+------------------------------------------------------------------------------
+    0            -2.189           -3.770            -3.584            -3.191
+
+. local DFGLS = r(dft0)
+
+. file open fh using "$texdir/elec_DFGLS.tex", write replace text
+(note: file C:/Work/OutputBasedRegs/paper/SingleNumberTex/elec_DFGLS.tex not fo
+> und)
+
+. file write fh %8.2f (`DFGLS')
+
+. file close fh
+
+. 
 . 
 . * Export natural gas price and elec gen
 . export delimited using "$outdir/AnnualElecGen_Pnatgas.csv", replace

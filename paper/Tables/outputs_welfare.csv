@@ -1,15 +1,17 @@
 Application, Pigou, Flat, Intensity, Optimal 
 MODELS WITH BOTH ETA AND F VOLATILITY, , , 
-Footprint, 68.3840, 32.6177, 31.1301, 32.6405 
-Miles driven, 68.0824, 31.9543, 25.1030, 32.3402 
-Elec, 3.2581e+09, 1.2312e+09, 1.4154e+09, 1.4935e+09 
-Footprint with high sigmaF, 68.3840, 7.4279, 7.0105, 7.4312 
-Elec with high demand elast, 7.7162e+09, 1.9990e+09, 1.6892e+09, 2.4125e+09 
+Footprint, 68.3840, 32.7071, 31.1689, 32.7093 
+Miles driven, 68.0824, 31.9544, 25.1028, 32.3401 
+Elec, 3.2760e+09, 1.2430e+09, 1.4164e+09, 1.4994e+09 
+Footprint with high sigmaF, 68.3840, 7.4438, 7.0212, 7.4441 
+Elec with half sigmaeta, 3.2760e+09, 1.5841e+09, 1.4181e+09, 1.6183e+09 
+Elec with double sigmaeta, 3.2760e+09, 5.2061e+08, 1.4099e+09, 1.4193e+09 
+Elec with high demand elast, 6.4645e+09, 1.9423e+09, 1.6101e+09, 2.2642e+09 
 MODELS WITH NONZERO CORR BETWEEN ETA AND F, , , 
-Footprint, 68.3840, 31.4992, 31.8784, 32.1704 
-Miles driven, 68.0824, 35.4968, 19.5195, 35.5431 
-Elec, 3.2581e+09, 1.1594e+09, 1.4091e+09, 1.4590e+09 
+Footprint, 68.3840, 32.6082, 31.2329, 32.6201 
+Miles driven, 68.0824, 35.4968, 19.5182, 35.5431 
+Elec, 3.2760e+09, 1.1844e+09, 1.4114e+09, 1.4703e+09 
 MODELS WITH ONLY ETA VOLATILITY, , , 
-Footprint, 68.3840, 68.1166, 65.1406, 68.1648 
+Footprint, 68.3840, 68.3052, 65.2146, 68.3100 
 Miles driven, 68.0824, 66.9578, 53.9426, 67.5816 
-Elec, 3.2581e+09, 2.0060e+09, 2.7046e+09, 2.7996e+09 
+Elec, 3.2760e+09, 2.0274e+09, 2.7070e+09, 2.8085e+09 

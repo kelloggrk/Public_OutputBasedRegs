@@ -29,6 +29,9 @@ do "globals.do"
 global codedir = "$repodir/code/build/fuelprices"
 global logdir = "$codedir/logfiles"
 
+* tex single number file folder
+global texdir = "$repodir/paper/SingleNumberTex"
+
 * Dropbox folder locations
 global rawdir = "$dropbox/rawdata/fuelprices"
 global intdir = "$dropbox/intdata/fuelprices"
@@ -70,13 +73,18 @@ drop _merge
 * Obtain real Jan 2016 prices in $mmBtu. Output data.
 gen PGas = PGas_Nom * CPIJan2016 / CPI
 drop PGas_Nom CPI*
-replace PGas = PGas / 1.036		// mmBtu per mcf, using https://www.eia.gov/tools/faqs/faq.php?id=45
+local mmBtu_per_mcf = 1.036		// mmBtu per mcf, using https://www.eia.gov/tools/faqs/faq.php?id=45
+replace PGas = PGas / `mmBtu_per_mcf'		
 label variable PGas "Real nat gas price for elec power, Jan 2016 $/mmBtu"
 order Year PGas
 keep Year PGas
 sort Year
 save "$intdir/NatGasPrices_Real2016_Annual.dta", replace
 
+* Write mmBtu per mcf conversion
+file open fh using "$texdir/elec_mmBtu_per_mcf.tex", write replace text
+file write fh %8.3f (`mmBtu_per_mcf')
+file close fh
 
 capture log close
 exit, clear

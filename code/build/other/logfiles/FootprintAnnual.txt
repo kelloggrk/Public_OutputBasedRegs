@@ -3,7 +3,7 @@
        log:  C:/Work/OutputBasedRegs/code/build/other/logfiles/FootprintAnnual.
 > txt
   log type:  text
- opened on:   6 Aug 2019, 17:20:55
+ opened on:  24 Jul 2020, 14:44:15
 
 . 
 . 
@@ -37,7 +37,7 @@
 . tempfile tempgas
 
 . save "`tempgas'"
-file C:\Users\RYANKE~1\AppData\Local\Temp\ST_1e38_000001.tmp saved
+file C:\Users\RYANKE~1\AppData\Local\Temp\ST_4da4_000001.tmp saved
 
 . clear
 
@@ -67,6 +67,88 @@ file C:\Users\RYANKE~1\AppData\Local\Temp\ST_1e38_000001.tmp saved
 . drop _merge
 
 . sort Year
+
+. 
+. * Unit root tests for footprint data
+. tsset Year
+        time variable:  Year, 1996 to 2010
+                delta:  1 unit
+
+. reg fp l.fp Year
+
+      Source |       SS           df       MS      Number of obs   =        14
+-------------+----------------------------------   F(2, 11)        =     67.26
+       Model |  3.54200795         2  1.77100397   Prob > F        =    0.0000
+    Residual |  .289640837        11  .026330985   R-squared       =    0.9244
+-------------+----------------------------------   Adj R-squared   =    0.9107
+       Total |  3.83164878        13  .294742214   Root MSE        =    .16227
+
+------------------------------------------------------------------------------
+          fp |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+          fp |
+         L1. |   .4802739   .2643092     1.82   0.097    -.1014668    1.062015
+             |
+        Year |    .063882   .0343904     1.86   0.090    -.0118107    .1395747
+       _cons |  -100.8582   56.02239    -1.80   0.099    -224.1627    22.44624
+------------------------------------------------------------------------------
+
+. dfgls fp
+ 
+DF-GLS for fp                                            Number of obs =     7
+Maxlag = 7 chosen by Schwert criterion
+ 
+               DF-GLS tau      1% Critical       5% Critical      10% Critical
+  [lags]     Test Statistic        Value             Value             Value
+------------------------------------------------------------------------------
+    7                 .           -3.770           -16.010           -11.635
+    6                 .           -3.770            -9.877            -6.878
+    5             7.847           -3.770            -5.895            -3.853
+    4            -3.938           -3.770            -3.635            -2.203
+    3            -1.829           -3.770            -2.667            -1.575
+    2            -1.501           -3.770            -2.560            -1.613
+    1            -2.144           -3.770            -2.883            -1.960
+ 
+Opt Lag (Ng-Perron seq t) =  5 with RMSE  .0039192
+Min SC   = -9.415815 at lag  5 with RMSE  .0039192
+Min MAIC = -.8683798 at lag  1 with RMSE  .1170759
+
+. dfgls fp, max(4)
+ 
+DF-GLS for fp                                            Number of obs =    10
+ 
+               DF-GLS tau      1% Critical       5% Critical      10% Critical
+  [lags]     Test Statistic        Value             Value             Value
+------------------------------------------------------------------------------
+    4            -3.077           -3.770            -3.012            -2.292
+    3            -1.747           -3.770            -2.965            -2.340
+    2            -2.318           -3.770            -3.151            -2.558
+    1            -3.188           -3.770            -3.421            -2.823
+ 
+Opt Lag (Ng-Perron seq t) =  4 with RMSE   .077162
+Min SC   = -3.979027 at lag  1 with RMSE  .1086339
+Min MAIC = -.4860015 at lag  1 with RMSE  .1086339
+
+. matrix list r(results)
+
+r(results)[4,5]
+             k        MAIC         SIC        RMSE       DFGLS
+r1           4   38.160297  -3.9724048   .07716196   -3.077038
+r1           3   2.4111198  -3.5503591   .10691763  -1.7465661
+r1           2   .80538982   -3.767106   .10764239  -2.3184939
+r1           1  -.48600146  -3.9790273   .10863385  -3.1877713
+
+. mat V = r(results)
+
+. local DFGLS = V[1,5]
+
+. file open fh using "$texdir/foot_DFGLS.tex", write replace text
+(note: file C:/Work/OutputBasedRegs/paper/SingleNumberTex/foot_DFGLS.tex not fo
+> und)
+
+. file write fh %8.2f (`DFGLS')
+
+. file close fh
 
 . 
 . 
